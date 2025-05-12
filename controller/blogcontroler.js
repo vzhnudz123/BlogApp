@@ -1,5 +1,5 @@
 import blog from "../models/schema.js";
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 import post from "../models/post.js";
 import { populate } from "dotenv";
@@ -62,9 +62,6 @@ const Login=async(req,res)=>{
         "abc",
         {expiresIn:"1h"}
     )
-
-
-
         return res.status(200).json({message:"login success",
             token:token,// ✅ TOKEN SENT TO FRONTEND
             _id: response._id,
@@ -146,12 +143,6 @@ const fullview = async (req, res) => {
     res.status(500).json({ message: "Server error in fullview" });
   }
 };
-
-
-
-
-
-
 
 
 
